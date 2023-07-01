@@ -22,7 +22,9 @@ function Addbook() {
     r.style.setProperty("--background", "black");
   };
   const getAuthors = async () => {
-    const response = await axios.get("http://localhost:8000/catalog/authors");
+    const response = await axios.get(
+      "https://the-floating-library-server-production.up.railway.app/catalog/authors"
+    );
     setauthors(response.data);
     let data = response.data;
     details.author = data[0];
@@ -32,7 +34,9 @@ function Addbook() {
     }));
   };
   const getGenres = async () => {
-    const response = await axios.get("http://localhost:8000/catalog/genres");
+    const response = await axios.get(
+      "https://the-floating-library-server-production.up.railway.app/catalog/genres"
+    );
     setgenres(response.data);
     let data = response.data;
     details.genre = data[0];
