@@ -1,0 +1,102 @@
+import React, { useState, useEffect } from "react";
+import styles from "./Signup.module.css";
+import axios from "axios";
+function Signup() {
+  const Detail = {
+    username: "",
+    password: "",
+    confirmPassword: "",
+  };
+  const [userDetails, setuserDetails] = useState(Detail); //store user details.
+  const [error, seterror] = useState(""); // to store error.
+
+  // so error disappears in 5 seconds.
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      seterror("");
+    }, 3000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [error]);
+
+  // form data handling.
+  const handleChange = (e) => {
+    let item = e.target.name;
+    console.log(item);
+    let updatedDetails = userDetails;
+    updatedDetails[`${item}`] = e.target.value;
+
+    setuserDetails((userDetails) => ({
+      ...userDetails,
+      ...updatedDetails,
+    }));
+  };
+
+  //form data submitting and signing up a new user.
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (userDetails.password !== userDetails.confirmPassword) {
+      seterror("Password and Confirm Password must be same");
+    } else {
+      try {
+        await axios.post("http://localhost:8000/users/signUp", userDetails);
+        alert("Submitted successfully!");
+        // TODO : try to empty fields without reload.
+        window.location.reload();
+      } catch (error) {
+        seterror("ACCOUNT WITH SAME USERNAME EXISTS!");
+        // console.log(error, " hi");
+      }
+    }
+  };
+
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.title}>Make an account, go ahead its free</h1>
+      <form className={styles.form}>
+        <label htmlFor="username" className={styles.label}>
+          <span>Name</span>
+          <input
+            type="text"
+            name="username"
+            onChange={handleChange}
+            value={userDetails.username}
+            placeholder="Username"
+            required
+          />
+        </label>
+        <label htmlFor="password" className={styles.label}>
+          <span>Password</span>
+          <input
+            type="password"
+            name="password"
+            onChange={handleChange}
+            value={userDetails.password}
+            placeholder="Password"
+            required
+          />
+        </label>
+        <label htmlFor="confirmPassword" className={styles.label}>
+          <span>Confirm Password</span>
+          <input
+            type="password"
+            name="confirmPassword"
+            onChange={handleChange}
+            value={userDetails.confirmPassword}
+            placeholder="Confirm Password"
+            required
+          />
+        </label>
+        <button onClick={handleSubmit} className={styles.button}>
+          Sign Up
+        </button>
+        {error.length !== 0 && <div className={styles.error}>{error}</div>}
+      </form>
+    </div>
+  );
+}
+
+export default Signup;

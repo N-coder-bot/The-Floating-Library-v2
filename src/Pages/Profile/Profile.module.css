@@ -1,0 +1,52 @@
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+    /* border: 0.3px solid red; */
+    height: 100vh;
+    background-color: #BAE8E8;
+}
+.booksContainer {
+    width: 70%;
+    font-family: AppleLight;
+    padding-top: 1rem;
+    overflow-y: scroll;
+    max-height: 640px;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+.profileContainer{
+    width: 30%;
+    background-color: #E3F6F5;
+    /* border:1px solid pink; */
+    font-family: AppleLight;
+    max-height: 640px;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.booksContainer::-webkit-scrollbar {
+    display: none;
+  }
+  
+.btn{
+    background-color: #272343;
+    border: none;
+    color:#FFFFFF;
+    border-radius:0.3rem;
+    padding:0.2rem;
+    width:10rem;
+    transition: all 0.3s;
+    font-family: AppleLight;
+}
+.btn:hover {
+    background-color: #4DB6AC;
+    color:black;
+}
+.tag{
+    text-align: center;
+    margin:5rem;
+    text-transform: capitalize;
+    color:#272343;
+    font-family: "AppleRegular";
+    font-size: inherit;
+}
