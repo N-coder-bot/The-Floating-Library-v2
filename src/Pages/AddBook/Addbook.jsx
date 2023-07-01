@@ -64,10 +64,14 @@ function Addbook() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post("http://localhost:8000/catalog/book/create", bookdetails, {
-      withCredentials: true,
-      headers: { Authorization: `${localStorage.getItem("token")}` },
-    });
+    await axios.post(
+      "https://the-floating-library-server-production.up.railway.app/catalog/book/create",
+      bookdetails,
+      {
+        withCredentials: true,
+        headers: { Authorization: `${localStorage.getItem("token")}` },
+      }
+    );
     alert("book added successfully!");
     window.location.reload();
     // console.log(bookdetails);

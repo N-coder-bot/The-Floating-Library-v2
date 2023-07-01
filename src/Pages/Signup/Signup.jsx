@@ -42,7 +42,10 @@ function Signup() {
       seterror("Password and Confirm Password must be same");
     } else {
       try {
-        await axios.post("http://localhost:8000/users/signUp", userDetails);
+        await axios.post(
+          "https://the-floating-library-server-production.up.railway.app/users/signUp",
+          userDetails
+        );
         alert("Submitted successfully!");
         // TODO : try to empty fields without reload.
         window.location.reload();
