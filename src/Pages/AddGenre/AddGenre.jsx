@@ -17,7 +17,7 @@ function AddGenre() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios.post(
-      "https://the-floating-library-server-production.up.railway.app/catalog/genre/create",
+      "https://the-floating-library-server.vercel.app/catalog/genre/create",
       genreDetails,
       {
         withCredentials: true,

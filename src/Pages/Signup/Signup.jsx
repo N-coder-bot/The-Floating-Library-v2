@@ -44,7 +44,7 @@ function Signup() {
     } else {
       try {
         await axios.post(
-          "https://the-floating-library-server-production.up.railway.app/users/signUp",
+          "https://the-floating-library-server.vercel.app/users/signUp",
           userDetails
         );
         alert("Submitted successfully!");
