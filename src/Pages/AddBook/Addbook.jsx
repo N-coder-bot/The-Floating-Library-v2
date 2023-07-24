@@ -17,7 +17,7 @@ function Addbook() {
   const [bookdetails, setbookdetails] = useState(details);
   const getAuthors = async () => {
     const response = await axios.get(
-      "https://the-floating-library-server-production.up.railway.app/catalog/authors"
+      "https://the-floating-library.onrender.com/catalog/authors"
     );
     setauthors(response.data);
     let data = response.data;
@@ -29,7 +29,7 @@ function Addbook() {
   };
   const getGenres = async () => {
     const response = await axios.get(
-      "https://the-floating-library-server-production.up.railway.app/catalog/genres"
+      "https://the-floating-library.onrender.com/catalog/genres"
     );
     setgenres(response.data);
     let data = response.data;
