@@ -26,7 +26,7 @@ function AddAuthor() {
     e.preventDefault();
     const token = localStorage.getItem("token");
     await axios.post(
-      "https://the-floating-library-server.vercel.app/catalog/author/create",
+      "https://the-floating-library.onrender.com/catalog/author/create",
       authorDetails,
       {
         withCredentials: true,

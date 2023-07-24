@@ -8,7 +8,7 @@ const UserProvider = ({ children }) => {
     const fetchUser = async () => {
       try {
         const response = await axios.get(
-          "https://the-floating-library-server.vercel.app/users/user",
+          "https://the-floating-library.onrender.com/users/user",
           {
             withCredentials: true,
             headers: {

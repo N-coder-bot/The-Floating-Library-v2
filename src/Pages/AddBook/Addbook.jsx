@@ -17,7 +17,7 @@ function Addbook() {
   const [bookdetails, setbookdetails] = useState(details);
   const getAuthors = async () => {
     const response = await axios.get(
-      "https://the-floating-library-server.vercel.app/catalog/authors"
+      "https://the-floating-library-server-production.up.railway.app/catalog/authors"
     );
     setauthors(response.data);
     let data = response.data;
@@ -29,7 +29,7 @@ function Addbook() {
   };
   const getGenres = async () => {
     const response = await axios.get(
-      "https://the-floating-library-server.vercel.app/catalog/genres"
+      "https://the-floating-library-server-production.up.railway.app/catalog/genres"
     );
     setgenres(response.data);
     let data = response.data;
@@ -62,7 +62,7 @@ function Addbook() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await axios.post(
-      "https://the-floating-library-server.vercel.app/catalog/book/create",
+      "https://the-floating-library.onrender.com/catalog/book/create",
       bookdetails,
       {
         withCredentials: true,
