@@ -1,21 +1,18 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
-
+import { origin } from "../assests/origin";
 const UserContext = createContext();
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await axios.get(
-          "https://the-floating-library-server-production.up.railway.app/users/user",
-          {
-            withCredentials: true,
-            headers: {
-              Authorization: `${localStorage.getItem("token")}`,
-            },
-          }
-        );
+        const response = await axios.get(`${origin}/users/user`, {
+          withCredentials: true,
+          headers: {
+            Authorization: `${localStorage.getItem("token")}`,
+          },
+        });
         console.log(response.data.user);
         setUser(response.data.user);
       } catch (error) {

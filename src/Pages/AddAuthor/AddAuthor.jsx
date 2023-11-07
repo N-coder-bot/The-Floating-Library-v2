@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./addauthor.module.css";
 import axios from "axios";
-
+import { origin } from "../../assests/origin";
 function AddAuthor() {
   const details = {
     first_name: "",
@@ -25,16 +25,12 @@ function AddAuthor() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-    await axios.post(
-      "https://the-floating-library-server-production.up.railway.app/catalog/author/create",
-      authorDetails,
-      {
-        withCredentials: true,
-        headers: {
-          Authorization: `${token}`,
-        },
-      }
-    );
+    await axios.post(`${origin}/catalog/author/create`, authorDetails, {
+      withCredentials: true,
+      headers: {
+        Authorization: `${token}`,
+      },
+    });
     alert("Author added successfully");
     window.location.reload();
     // console.log(response.data);

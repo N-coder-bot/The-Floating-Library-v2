@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Login.module.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { origin } from "../../assests/origin";
 function Login() {
   const Detail = {
     username: "",
@@ -32,16 +33,12 @@ function Login() {
     e.preventDefault();
     // console.log(userDetails);
     try {
-      const response = await axios.post(
-        "https://the-floating-library-server-production.up.railway.app/users/login",
-        userDetails,
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await axios.post(`${origin}/users/login`, userDetails, {
+        withCredentials: true,
+      });
       alert("Submitted successfully!");
       localStorage.setItem("token", response.data.token);
-      window.location = "/";
+      window.location = "/Feed";
     } catch (error) {
       if (error.response && error.response.status === 401) {
         if (error.response.data.msg === "could not find user") {

@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
-import { Link } from "react-router-dom";
+
 import styles from "./Home.module.css";
-import { useEffect } from "react";
-function Home() {
+import book from "../../assests/img_book.jpg";
+import { useEffect, useState } from "react";
+function Home({ logged }) {
   useEffect(() => {
     // Check if it's the first visit.
 
@@ -22,48 +24,16 @@ function Home() {
   }, []);
   return (
     <div className={styles.container}>
-      <h2 id={styles.title}>
-        About <span id={styles.text}>This Library</span>
-      </h2>
-      <div className={styles.box}>
-        <div className={styles.card}>
-          <Link to="/Addbook">
-            <p>Book details to be added.</p>
-            <hr
-              style={{ border: "1px solid black", backgroundColor: "black" }}
-            />
-            <p>Title:"Thor: The Dark World"</p>
-            <p>Author:"Stanlee"</p>
-            <p>ISBN:98989810</p>
-          </Link>
+      <div className={styles.cardWrapper}>
+        <div className={styles.cardText}>
+          <h1>
+            The ideal platform for authors to share exciting announcements about
+            their books.
+          </h1>
         </div>
-        <p className={styles.cardText}>Add Book.</p>
-      </div>
-      <div className={styles.box}>
-        <div className={styles.card}>
-          <Link to="/Addauthor">
-            <p>Author details to be added.</p>
-            <hr
-              style={{ border: "1px solid black", backgroundColor: "black" }}
-            />
-            <p>First Name: Ricky</p>
-            <p>Last Name: Morty</p>
-            <p>Dob: 1989-11-06</p>
-          </Link>
+        <div>
+          <img src={book} alt="book image" />
         </div>
-        <p className={styles.cardText}>Add Author.</p>
-      </div>
-      <div className={styles.box}>
-        <div className={styles.card}>
-          <Link to="/Addgenre">
-            <p>Genre details to be added.</p>
-            <hr
-              style={{ border: "1px solid black", backgroundColor: "black" }}
-            />
-            <p>Name: Science Fiction</p>
-          </Link>
-        </div>
-        <p className={styles.cardText}>Add Genre.</p>
       </div>
     </div>
   );

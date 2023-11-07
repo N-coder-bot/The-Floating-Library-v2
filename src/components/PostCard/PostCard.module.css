@@ -1,0 +1,172 @@
+:root{
+    --primary: #F0EEED;
+    --secondary: #609EA2;
+    --dark:#332C39;
+    --light:#C92C6D;
+}
+.wrapper{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding:2rem;
+    margin-bottom: 2rem;
+}
+.container{
+    background-color: #ffffff81;
+    display: flex;
+    flex-direction: column;
+    gap:13px;
+    padding:1.2rem;
+    border-radius: 0.75rem;
+    -webkit-box-shadow: 1px 0px 34px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 0px 34px -10px rgba(0,0,0,0.75);
+    box-shadow: 1px 0px 34px -10px rgba(0,0,0,0.75);
+    font-family: AppleLight;
+}
+.head{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.pfp{
+    display: flex;
+    align-items: center;
+    gap:20px;
+    width:60%;
+    flex-wrap: wrap;
+}
+.useroptions{
+    width: 30%;
+}
+.contentImg img{
+    width: 364px;
+    object-fit: cover;
+    border-radius: 0.4rem;
+    margin:0 auto;
+}
+
+.userpfp img{
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+}
+
+.content{
+    position: relative;
+}
+.contentTxt{
+    margin-left: 1rem;
+    margin-top: 1rem;
+    overflow-y: scroll;
+    max-height:150px;
+}
+.contentTxt::-webkit-scrollbar{
+    display: none;
+}
+
+.arrow{
+    position: absolute;
+    color: var(--primary);
+    cursor: pointer;
+}
+#right{
+    width:25px;
+    height: 25px;
+    top:30%;
+    right:10%;
+}
+#left{
+    width:25px;
+    height: 25px;
+    top:30%;
+    left:10%;
+}
+.like{
+    width:25px;
+    height: 25px;
+    cursor: pointer;
+    color:var(--light);
+}
+.footOptions{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.comment{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap:5px;
+}
+.commentSection > li {
+    font-size: small;
+    text-decoration: none;
+    list-style-type: none;
+    border:0.00001px solid black;
+    padding: 10px;
+}
+.commentSection{
+    height: 150px;
+    overflow-y: scroll;
+}
+.commentSection::-webkit-scrollbar{
+    display: none;
+}
+.likeWrapper{
+    display: flex;
+    align-items: center;
+    gap:5px;
+}
+.loadingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+.spinner {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+@media (min-width:500px) {
+    .container{
+        max-width: 400px;
+    }
+
+}
+@media (max-width:500px) {
+    .pfp{
+        gap:13px;
+    }
+    .userfeature {
+        font-size: smaller;
+    }
+    .contentTxt{
+        max-height: 115px;
+    }
+    
+}
+@media (max-width:415px) {
+    .like{
+        width:14px;
+    }
+    .footOptions{
+        gap:5px;
+        width: 140px;
+        margin:0 auto;
+    }
+    .comment{
+        gap:5px;
+    }
+}

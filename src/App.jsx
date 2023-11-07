@@ -14,24 +14,29 @@ import Profile from "./Pages/Profile/Profile";
 import Unauthorized from "./Pages/Unauthorized/Unauthorized";
 import AddGenre from "./Pages/AddGenre/AddGenre";
 import Login from "./Pages/Login/Login";
-import { useState, useEffect, useContext } from "react";
+
+import React, { useState, useEffect, useContext } from "react";
 import { UserContext } from "./contexts/UserContext";
+import Post from "./components/AddPost/Post";
+import ForYou from "./components/ForYou/ForYou";
+import Following from "./components/Following/Following";
+import Feed from "./Pages/Feed/Feed";
+import PeopleToFollow from "./components/PeopleToFollow/PeopleToFollow";
+import Layout from "./Pages/Layout/Layout";
 
 function App() {
   const user = useContext(UserContext);
   const [logged, setLogged] = useState(false);
   useEffect(() => {
-    // console.log(user);
     if (user) setLogged(true);
     else setLogged(false);
   }, [user]);
-  // console.log("hi from App");
+
   return (
     <Router>
       <div className={styles.header}>
         <h1 id={styles.title}>The Floating Library</h1>
         <div className={styles.options}>
-          <Link to="/">Home</Link>
           {!logged ? (
             <>
               <Link to="/Login">Login</Link>
@@ -39,7 +44,6 @@ function App() {
             </>
           ) : (
             <>
-              <Link to="/Profile">Profile</Link>
               <button
                 type="button"
                 onClick={() => {
@@ -53,24 +57,29 @@ function App() {
           )}
         </div>
       </div>
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/SignUp" element={<Signup />} />
-        {logged ? (
-          <>
-            <Route exact path="/Addbook" element={<Addbook />} />
-            <Route exact path="/Addauthor" element={<AddAuthor />} />
-            <Route exact path="/Addgenre" element={<AddGenre />} />
-            <Route exact path="/Profile" element={<Profile />} />
-            <Route path="*" element={<Unauthorized />} />
-          </>
-        ) : (
-          <>
-            <Route exact path="/Login" element={<Login />} />
-            <Route path="*" element={<Unauthorized />} />
-          </>
-        )}
-      </Routes>
+      <div className={styles.container}>
+        {logged && <Layout />}
+        <Routes>
+          <Route exact path="/SignUp" element={<Signup />} />
+          {logged ? (
+            <>
+              <Route exact path="/Addbook" element={<Addbook />} />
+              <Route exact path="/Addauthor" element={<AddAuthor />} />
+              <Route exact path="/Addgenre" element={<AddGenre />} />
+              <Route exact path="/Profile" element={<Profile />} />
+              <Route exact path="/Post" element={<Post />} />
+              <Route exact path="/Feed" element={<Feed />} />
+              <Route path="*" element={<Unauthorized />} />
+            </>
+          ) : (
+            <>
+              <Route exact path="/Login" element={<Login />} />
+              <Route exact path="/" element={<Home />} />
+            </>
+          )}
+        </Routes>
+        {logged && <PeopleToFollow />}
+      </div>
     </Router>
   );
 }

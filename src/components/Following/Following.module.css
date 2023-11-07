@@ -1,0 +1,7 @@
+.wrapper{
+    height: 80vh;
+    overflow-y: scroll;
+}
+.wrapper::-webkit-scrollbar{
+    display: none;
+}

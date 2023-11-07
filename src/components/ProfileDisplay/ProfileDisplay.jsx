@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import styles from "./ProfileDisplay.module.css";
 import axios from "axios";
+import { origin } from "../../assests/origin";
 function ProfileDisplay({ user }) {
   const [toggle1, setToggle1] = useState(false);
   const [username, setUsername] = useState("");
@@ -25,16 +26,12 @@ function ProfileDisplay({ user }) {
     } else {
       try {
         const data = { username, password };
-        await axios.put(
-          `https://the-floating-library-server-production.up.railway.app/users/updateUser/${user._id}`,
-          data,
-          {
-            withCredentials: true,
-            headers: {
-              Authorization: `${localStorage.getItem("token")}`,
-            },
-          }
-        );
+        await axios.put(`${origin}/users/updateUser/${user._id}`, data, {
+          withCredentials: true,
+          headers: {
+            Authorization: `${localStorage.getItem("token")}`,
+          },
+        });
         window.location.reload();
       } catch (error) {
         if (error.response.data.msg === "ALREADY EXISTS!") {

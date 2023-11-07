@@ -1,39 +1,77 @@
+/* App.module.css */
+:root {
+    --font-size: 16px;
+  }
+  
+  body {
+    margin: 0;
+    font-size: var(--font-size);
+    transition: background-color 0.3s, color 0.3s;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position:bottom;
+    background-image: url("../src/assests/bg1.jpg");
 
+  }
+  
+  .header {
+    padding: 20px;
+    display: flex;
+    justify-content:space-around;
+    color: var(--skin);
+    align-items: center;
+    position: relative;
+  }
+  
+  #title {
+    font-family: "AppleMedium";
+    letter-spacing: 8px;
+    background-size: 80%;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 5px;
+    height: 50px;
+  }
 
-.header{
-    margin: 1rem auto;
+  .options {
     display: flex;
     justify-content: space-around;
-    max-width: 1920px;
-    @media (min-width: 375px) {
-        margin-top: 2rem;
-      }
-}
-
-.options{
-    display: flex;
-    justify-content: space-around;
-   align-items: center;
-   width: 40%;
-}
-#title{
-    font-family: "AppleRegular";
-    transition:1s;
-    color:var(--header);
-}
-
-#title:hover{
-   color:var(--hover);
-    transform:scale(1.3);
-}
-.options>a{
-    font-size: 1.2rem;
+    align-items: center;
+    width: 20%;
+    gap: 20px;
+  }
+  #title:hover{
+    color:black;
+  }
+  .options > a {
+    color: black;
     text-decoration: none;
-    font-family: "AppleRegular";
-    color:var(--header);
-    transition: 0.5s;
-}
-.options>a:hover{
-    color:var(--hover);
-    transform: scale(1.3);
-}
+    font-size: 1.3rem;
+    font-family: "AppleMedium";
+    font-weight: bold;
+  }
+  
+  .options > a:hover {
+    transform: scale(1.25);
+    color: var(--skin);
+  }
+  
+  .container {
+    display: flex;
+    position: relative;
+    width: 100vw;
+    max-width: 100%;
+    justify-content: center;
+    
+  }
+  
+  /* Apply smooth transition to the whole app */
+  .header,
+  .options > a,
+  #title {
+    transition: all 0.3s;
+  }
+
+  /* Apply additional styles and animations as needed to other components */
+  

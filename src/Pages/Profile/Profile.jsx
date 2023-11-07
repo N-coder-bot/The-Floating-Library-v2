@@ -5,6 +5,7 @@ import BookList from "../../components/BookList/BookList";
 import ProfileDisplay from "../../components/ProfileDisplay/ProfileDisplay";
 import SearchBook from "../../components/SearchBook/SearchBook";
 import axios from "axios";
+import { origin } from "../../assests/origin";
 function Profile() {
   const user = useContext(UserContext);
   const [toggle, setToggle] = useState(false);
@@ -12,15 +13,12 @@ function Profile() {
   // Fetch Books from the server.
   const fetchBooks = async () => {
     try {
-      const response = await axios.get(
-        "https://the-floating-library-server-production.up.railway.app/users/user/books",
-        {
-          withCredentials: true,
-          headers: {
-            Authorization: `${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const response = await axios.get(`${origin}/users/user/books`, {
+        withCredentials: true,
+        headers: {
+          Authorization: `${localStorage.getItem("token")}`,
+        },
+      });
       setBooks(response.data);
       console.log(response.data);
     } catch (error) {

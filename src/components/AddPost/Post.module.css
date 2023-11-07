@@ -1,0 +1,120 @@
+:root {
+    --primary: #3498db;
+    --secondary: #e74c3c;
+    --dark: #333;
+    --light: #C92C6D;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    color: var(--dark);
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  #content {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    outline: none;
+    font-size: 1rem;
+    height: 200px; /* Fixed height */
+    padding: 0.75rem;
+    resize: none;
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+    margin-bottom: 1rem;
+    overflow: auto; /* Add scroll bars when content overflows */
+  }
+  
+  #content:focus {
+    background-color: #fff;
+    color: var(--dark);
+    border-color: var(--primary);
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    width: 100%;
+  }
+  
+  .label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .btn {
+    background-color: var(--dark);
+    border: none;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    padding: 0.75rem;
+    width: 100%;
+    max-width: 270px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: var(--light);
+    transform: scale(1.05);
+  }
+  #images {
+    margin-top: 50px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  #images::file-selector-button {
+    background-color: var(--dark);
+    border: none;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, color 0.3s;
+  }
+  
+  #images::file-selector-button:hover {
+    background-color: var(--light);
+    transform: scale(1.05);
+  }
+  
+  .loadingContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+  }
+  
+  .spinner {
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

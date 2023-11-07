@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import styles from "./BookCard.module.css";
 import { useState } from "react";
-
+import { origin } from "../../assests/origin";
 import axios from "axios";
 function BookCard({ book, onDelete }) {
   const [showFullSummary, setShowFullSummary] = useState({});
@@ -55,15 +55,12 @@ function BookCard({ book, onDelete }) {
         className={styles.delete}
         onClick={async () => {
           setDisplay("none");
-          await axios.delete(
-            `https://the-floating-library-server-production.up.railway.app/catalog/book/delete/${_id}`,
-            {
-              withCredentials: true,
-              headers: {
-                Authorization: `${localStorage.getItem("token")}`,
-              },
-            }
-          );
+          await axios.delete(`${origin}/catalog/book/delete/${_id}`, {
+            withCredentials: true,
+            headers: {
+              Authorization: `${localStorage.getItem("token")}`,
+            },
+          });
           onDelete();
         }}
       >

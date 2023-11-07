@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styles from "./addbook.module.css";
 import { Link } from "react-router-dom";
+import { origin } from "../../assests/origin";
 function Addbook() {
   const [authors, setauthors] = useState([]);
   const [genres, setgenres] = useState([]);
@@ -16,9 +17,7 @@ function Addbook() {
 
   const [bookdetails, setbookdetails] = useState(details);
   const getAuthors = async () => {
-    const response = await axios.get(
-      "https://the-floating-library-server-production.up.railway.app/catalog/authors"
-    );
+    const response = await axios.get(`${origin}/catalog/authors`);
     setauthors(response.data);
     let data = response.data;
     details.author = data[0];
@@ -28,9 +27,7 @@ function Addbook() {
     }));
   };
   const getGenres = async () => {
-    const response = await axios.get(
-      "https://the-floating-library-server-production.up.railway.app/catalog/genres"
-    );
+    const response = await axios.get(`${origin}/catalog/genres`);
     setgenres(response.data);
     let data = response.data;
     details.genre = data[0];
@@ -61,14 +58,10 @@ function Addbook() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post(
-      "https://the-floating-library-server-production.up.railway.app/catalog/book/create",
-      bookdetails,
-      {
-        withCredentials: true,
-        headers: { Authorization: `${localStorage.getItem("token")}` },
-      }
-    );
+    await axios.post(`${origin}/catalog/book/create`, bookdetails, {
+      withCredentials: true,
+      headers: { Authorization: `${localStorage.getItem("token")}` },
+    });
     alert("book added successfully!");
     window.location.reload();
     // console.log(bookdetails);

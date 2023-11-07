@@ -1,6 +1,7 @@
 import styles from "./AddGenre.module.css";
 import { useState } from "react";
 import axios from "axios";
+import { origin } from "../../assests/origin";
 
 function AddGenre() {
   const details = {
@@ -16,16 +17,12 @@ function AddGenre() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.post(
-      "https://the-floating-library-server-production.up.railway.app/catalog/genre/create",
-      genreDetails,
-      {
-        withCredentials: true,
-        headers: {
-          Authorization: `${localStorage.getItem("token")}`,
-        },
-      }
-    );
+    await axios.post(`${origin}/catalog/genre/create`, genreDetails, {
+      withCredentials: true,
+      headers: {
+        Authorization: `${localStorage.getItem("token")}`,
+      },
+    });
     alert("Genre Added to Collection Successfully!");
     window.location.reload();
     // console.log(response);

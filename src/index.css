@@ -7,14 +7,20 @@
   html, body {
     height: 100%;
   }
+  body::-webkit-scrollbar{
+    display: none;
+  }
   :root{
-    --header:#FFFFFF;
-    --hover:#BAE8E8;
+    --purple: #8E7DBE;
+    --green: #99C1B9;
+    --skin:#F1E3D3;
+    --golden:#F2D0A9;
+    --pink:#D88C9A;
+    --black:#1e2625;
 }
   body {
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;
-    background-color: #272343;
   }
   img, picture, video, canvas, svg {
     display: block;
@@ -52,15 +58,5 @@
   }
   a {
     text-decoration: none;
-    color:rgb(29 223 132);
   }
-  @media (min-width: 1820px) {
-    html {
-      font-size: 30px;
-    }
-  }
-  @media (min-width: 375px) {
-    html {
-      font-size: 9px;
-    }
-  }
+ 

@@ -2,18 +2,21 @@
     display: flex;
     flex-direction: column;
     width: 60%;
+    max-width: 500px;
     align-items: center;
     border-radius: 0.3rem;
     gap:2rem;
     flex-wrap: wrap;
+    color: white;
 }
 .container{
     display: flex;
     position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    background-color:white;
     gap:2rem;
-    flex-wrap: wrap;
     padding:3rem;
 }
 .label>span{
@@ -23,26 +26,29 @@
 }
 .title{
     font-family: "AppleRegular";
-    color:black;
+    color:white;
     text-align: center;
     transition: 0.3s;
+    opacity: 0.8;
 }
 .title:hover{
     transform: scale(1.1);
-    color:#606C5D;
     cursor: none;
 }
 .form input{
    background-color: transparent;
-    color: black;
+    color: white;
     font-family: AppleLight;
     padding:0.7rem;
     outline: none;
     border-radius: 1rem;
     border:1px solid black;
     transition: all 0.1s;
+    opacity: 1; /* Firefox */
 }
-
+.label > input::placeholder{
+    color:black;
+}
 .label{
     width: 100%;
     display: flex;
@@ -53,9 +59,10 @@
 .button{
    font-size: larger;
    width: 20%;
+   color:black;
    padding:0.3rem 0rem 0.3rem 0rem;
    text-align: center;
-   background-color: transparent;
+   background-color:rgba(255, 255, 255, 0.553);
    font-family: "AppleMedium";
    border:0.1rem solid white;
    border-radius: 1rem;
@@ -68,7 +75,6 @@
     cursor:pointer;
     border-color:black;
     color:black;
-    background-color: white;
     -webkit-box-shadow: 4px 4px 0px 3px rgba(0,0,0,0.75);
     -moz-box-shadow: 4px 4px 0px 3px rgba(0,0,0,0.75);
     box-shadow: 4px 4px 0px 3px rgba(0,0,0,0.75);
@@ -80,7 +86,6 @@
     font-weight: bolder;
     text-align: center;
     margin-top: 1rem;
-    background-color: #BAE8E8;
     padding:1.3rem;
     border-radius: 0.75rem;
 }
@@ -99,7 +104,6 @@
     .container{
         justify-content: center;
         align-items: center;
-        height: 60vh;
     }
     .button{
         width: 100%;
