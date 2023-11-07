@@ -7,24 +7,12 @@ const UserProvider = ({ children }) => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-<<<<<<< HEAD
         const response = await axios.get(`${origin}/users/user`, {
           withCredentials: true,
           headers: {
             Authorization: `${localStorage.getItem("token")}`,
           },
         });
-=======
-        const response = await axios.get(
-          "https://the-floating-library.onrender.com/users/user",
-          {
-            withCredentials: true,
-            headers: {
-              Authorization: `${localStorage.getItem("token")}`,
-            },
-          }
-        );
->>>>>>> 84bbd951cc3e2e55ded856dc1be5a362dd51813b
         console.log(response.data.user);
         setUser(response.data.user);
       } catch (error) {
