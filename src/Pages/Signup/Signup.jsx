@@ -44,7 +44,14 @@ function Signup() {
       seterror("Password and Confirm Password must be same");
     } else {
       try {
+<<<<<<< HEAD
         await axios.post(`${origin}/users/signUp`, userDetails);
+=======
+        await axios.post(
+          "https://the-floating-library.onrender.com/users/signUp",
+          userDetails
+        );
+>>>>>>> 84bbd951cc3e2e55ded856dc1be5a362dd51813b
         alert("Submitted successfully!");
         // TODO : try to empty fields without reload.
         window.location.reload();

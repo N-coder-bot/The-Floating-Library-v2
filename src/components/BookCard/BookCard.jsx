@@ -55,12 +55,24 @@ function BookCard({ book, onDelete }) {
         className={styles.delete}
         onClick={async () => {
           setDisplay("none");
+<<<<<<< HEAD
           await axios.delete(`${origin}/catalog/book/delete/${_id}`, {
             withCredentials: true,
             headers: {
               Authorization: `${localStorage.getItem("token")}`,
             },
           });
+=======
+          await axios.delete(
+            `https://the-floating-library.onrender.com/catalog/book/delete/${_id}`,
+            {
+              withCredentials: true,
+              headers: {
+                Authorization: `${localStorage.getItem("token")}`,
+              },
+            }
+          );
+>>>>>>> 84bbd951cc3e2e55ded856dc1be5a362dd51813b
           onDelete();
         }}
       >

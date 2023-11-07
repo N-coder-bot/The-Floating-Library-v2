@@ -17,12 +17,25 @@ function AddGenre() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     await axios.post(`${origin}/catalog/genre/create`, genreDetails, {
       withCredentials: true,
       headers: {
         Authorization: `${localStorage.getItem("token")}`,
       },
     });
+=======
+    await axios.post(
+      "https://the-floating-library.onrender.com/catalog/genre/create",
+      genreDetails,
+      {
+        withCredentials: true,
+        headers: {
+          Authorization: `${localStorage.getItem("token")}`,
+        },
+      }
+    );
+>>>>>>> 84bbd951cc3e2e55ded856dc1be5a362dd51813b
     alert("Genre Added to Collection Successfully!");
     window.location.reload();
     // console.log(response);
