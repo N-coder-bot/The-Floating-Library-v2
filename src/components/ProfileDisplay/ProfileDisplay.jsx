@@ -26,25 +26,12 @@ function ProfileDisplay({ user }) {
     } else {
       try {
         const data = { username, password };
-<<<<<<< HEAD
         await axios.put(`${origin}/users/updateUser/${user._id}`, data, {
           withCredentials: true,
           headers: {
             Authorization: `${localStorage.getItem("token")}`,
           },
         });
-=======
-        await axios.put(
-          `https://the-floating-library.onrender.com/users/updateUser/${user._id}`,
-          data,
-          {
-            withCredentials: true,
-            headers: {
-              Authorization: `${localStorage.getItem("token")}`,
-            },
-          }
-        );
->>>>>>> 84bbd951cc3e2e55ded856dc1be5a362dd51813b
         window.location.reload();
       } catch (error) {
         if (error.response.data.msg === "ALREADY EXISTS!") {

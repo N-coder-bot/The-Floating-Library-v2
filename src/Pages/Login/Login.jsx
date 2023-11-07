@@ -33,19 +33,9 @@ function Login() {
     e.preventDefault();
     // console.log(userDetails);
     try {
-<<<<<<< HEAD
       const response = await axios.post(`${origin}/users/login`, userDetails, {
         withCredentials: true,
       });
-=======
-      const response = await axios.post(
-        "https://the-floating-library.onrender.com/users/login",
-        userDetails,
-        {
-          withCredentials: true,
-        }
-      );
->>>>>>> 84bbd951cc3e2e55ded856dc1be5a362dd51813b
       alert("Submitted successfully!");
       localStorage.setItem("token", response.data.token);
       window.location = "/Feed";

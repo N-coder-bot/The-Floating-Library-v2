@@ -17,13 +17,7 @@ function Addbook() {
 
   const [bookdetails, setbookdetails] = useState(details);
   const getAuthors = async () => {
-<<<<<<< HEAD
     const response = await axios.get(`${origin}/catalog/authors`);
-=======
-    const response = await axios.get(
-      "https://the-floating-library.onrender.com/catalog/authors"
-    );
->>>>>>> 84bbd951cc3e2e55ded856dc1be5a362dd51813b
     setauthors(response.data);
     let data = response.data;
     details.author = data[0];
@@ -33,13 +27,7 @@ function Addbook() {
     }));
   };
   const getGenres = async () => {
-<<<<<<< HEAD
     const response = await axios.get(`${origin}/catalog/genres`);
-=======
-    const response = await axios.get(
-      "https://the-floating-library.onrender.com/catalog/genres"
-    );
->>>>>>> 84bbd951cc3e2e55ded856dc1be5a362dd51813b
     setgenres(response.data);
     let data = response.data;
     details.genre = data[0];
@@ -70,21 +58,10 @@ function Addbook() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
     await axios.post(`${origin}/catalog/book/create`, bookdetails, {
       withCredentials: true,
       headers: { Authorization: `${localStorage.getItem("token")}` },
     });
-=======
-    await axios.post(
-      "https://the-floating-library.onrender.com/catalog/book/create",
-      bookdetails,
-      {
-        withCredentials: true,
-        headers: { Authorization: `${localStorage.getItem("token")}` },
-      }
-    );
->>>>>>> 84bbd951cc3e2e55ded856dc1be5a362dd51813b
     alert("book added successfully!");
     window.location.reload();
     // console.log(bookdetails);

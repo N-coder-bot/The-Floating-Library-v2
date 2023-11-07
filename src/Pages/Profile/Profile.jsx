@@ -13,24 +13,12 @@ function Profile() {
   // Fetch Books from the server.
   const fetchBooks = async () => {
     try {
-<<<<<<< HEAD
       const response = await axios.get(`${origin}/users/user/books`, {
         withCredentials: true,
         headers: {
           Authorization: `${localStorage.getItem("token")}`,
         },
       });
-=======
-      const response = await axios.get(
-        "https://the-floating-library.onrender.com/users/user/books",
-        {
-          withCredentials: true,
-          headers: {
-            Authorization: `${localStorage.getItem("token")}`,
-          },
-        }
-      );
->>>>>>> 84bbd951cc3e2e55ded856dc1be5a362dd51813b
       setBooks(response.data);
       console.log(response.data);
     } catch (error) {

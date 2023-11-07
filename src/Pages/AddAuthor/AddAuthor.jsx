@@ -25,25 +25,12 @@ function AddAuthor() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem("token");
-<<<<<<< HEAD
     await axios.post(`${origin}/catalog/author/create`, authorDetails, {
       withCredentials: true,
       headers: {
         Authorization: `${token}`,
       },
     });
-=======
-    await axios.post(
-      "https://the-floating-library.onrender.com/catalog/author/create",
-      authorDetails,
-      {
-        withCredentials: true,
-        headers: {
-          Authorization: `${token}`,
-        },
-      }
-    );
->>>>>>> 84bbd951cc3e2e55ded856dc1be5a362dd51813b
     alert("Author added successfully");
     window.location.reload();
     // console.log(response.data);
