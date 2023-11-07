@@ -24,7 +24,7 @@ function ForYou() {
     // console.log(response.data);
     const newPosts = [...posts, ...response.data.posts];
     setposts(newPosts);
-    console.log(newPosts);
+    // console.log(newPosts);
     setpage(page + 1);
   };
 

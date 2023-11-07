@@ -1,0 +1,19 @@
+.container{
+    background-color: var(--black);
+    border-radius: 0.2rem;
+    padding:1rem;
+    width: 250px;
+    justify-content: space-evenly;
+    display: flex;
+    color:white;
+    margin:0.75rem;
+}
+.pfp{
+    width: 100px;
+}
+.pfp >img{
+    width:73px;
+    height: 73px;
+    border-radius: 0.2rem;
+    object-fit: cover;
+}

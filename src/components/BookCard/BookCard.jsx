@@ -8,7 +8,7 @@ function BookCard({ book, onDelete }) {
   const { title, author, _id, summary, isbn, genre } = book;
   const [display, setDisplay] = useState("flex");
   const card = document.getElementsByClassName(`${styles.card}`);
-  console.log(card);
+  // console.log(card);
   return (
     <div className={styles.card} key={_id} style={{ display: display }}>
       <ul className={styles.cardList}>
