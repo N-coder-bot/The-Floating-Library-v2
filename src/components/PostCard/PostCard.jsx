@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import styles from "./PostCard.module.css";
 import pfp from "../../assests/pfp.png";
-import bkimg from "../../assests/bookimg.jpg";
 import { origin } from "../../assests/origin";
 import {
   BiCategory,
@@ -34,6 +33,8 @@ function PostCard({
   const [showComments, setShowComments] = useState(
     comments.map((comment) => comment.text)
   );
+  const [timeDifference, setTimeDifference] = useState(0);
+  const [timeline, setTimeLine] = useState("seconds");
   const currentUser = useContext(UserContext);
   // console.log(currentUser);
   const credentials = {
@@ -45,7 +46,23 @@ function PostCard({
   const getMinutesPassed = (timestamp) => {
     const currentTime = new Date();
     const postTime = new Date(timestamp);
-    const timeDifference = Math.floor((currentTime - postTime) / (1000 * 60));
+    let timeDifference = Math.floor((currentTime - postTime) / (1000 * 60));
+    if (timeDifference < 60) {
+      setTimeLine("minutes");
+      return timeDifference;
+    }
+    timeDifference = Math.floor(timeDifference / 60); //hours.
+    if (timeDifference < 24) {
+      setTimeLine("hours");
+      return timeDifference;
+    }
+    timeDifference = Math.floor(timeDifference / 24);
+    if (timeDifference < 30) {
+      setTimeLine("days");
+      return timeDifference;
+    }
+    timeDifference = Math.floor(timeDifference / 30);
+    setTimeLine("months");
     return timeDifference;
   };
   // checking for likes.
@@ -56,6 +73,8 @@ function PostCard({
         return;
       } else setlike(false);
     });
+    const time = getMinutesPassed(timestamp);
+    setTimeDifference(time);
   }, [likes, currentUser]);
 
   const handlePtr = (e) => {
@@ -81,7 +100,7 @@ function PostCard({
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
+      await axios.post(
         `${origin}/users/user/comment/${_id}`,
         {
           comment: addComment,
@@ -96,7 +115,6 @@ function PostCard({
       console.log(error);
     }
   };
-  const minutesPassed = getMinutesPassed(timestamp);
   const createMarkup = (htmlString) => ({ __html: htmlString });
   return (
     <>
@@ -115,7 +133,9 @@ function PostCard({
               </div>
               <div className={styles.userfeature}>
                 <p>{user.username}</p>
-                <p>{minutesPassed} minutes ago...</p>
+                <p>
+                  {timeDifference} {timeline} ago...
+                </p>
               </div>
             </div>
             <div className={styles.userOptions}>

@@ -5,7 +5,7 @@
     margin-right: 4px;
     transition: background-color 0.3s ease;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
-    height: 300px;
+    height: 80vh;
     overflow-y: scroll;
     position: relative;
   }
@@ -13,7 +13,9 @@
     background-color: rgba(255, 255, 255, 0.694);
     color: black;
   }
-  
+  .people::-webkit-scrollbar{
+    display: none;
+  }
 
   
   .title {
