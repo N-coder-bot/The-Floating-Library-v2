@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Post.module.css";
 
@@ -105,6 +105,14 @@ const PostForm = () => {
           ...credentials,
         });
         // console.log(postResponse.data);
+      } else {
+        const addPostData = {
+          content,
+          image: null,
+        };
+        await axios.post(`${origin}/users/user/createPost`, addPostData, {
+          ...credentials,
+        });
       }
     } catch (error) {
       console.log(error);

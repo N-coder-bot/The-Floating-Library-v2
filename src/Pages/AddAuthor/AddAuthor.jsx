@@ -40,19 +40,21 @@ function AddAuthor() {
       <h1 className={styles.title}>
         Fill this form to ADD Author to your database!
       </h1>
-      <form className={styles.form}>
-        <label htmlFor="first_name" className={styles.label}>
-          <span className={styles.labels}>First Name</span>
-          <input
-            type="text"
-            name="first_name"
-            value={authorDetails.first_name}
-            onChange={handleChange}
-            className={styles.textfield}
-            placeholder="First Name"
-          />
+      <form className={styles.addform}>
+        <label htmlFor="first_name">
+          <div className={styles.box}>
+            <span className={styles.labels}>First Name</span>
+            <input
+              type="text"
+              name="first_name"
+              value={authorDetails.first_name}
+              onChange={handleChange}
+              className={styles.textfield}
+              placeholder="First Name"
+            />
+          </div>
         </label>
-        <label htmlFor="family_name" className={styles.label}>
+        <label htmlFor="family_name">
           <span className={styles.labels}>Last Name</span>
           <input
             type="text"
@@ -63,7 +65,7 @@ function AddAuthor() {
             placeholder="Last Name"
           />
         </label>
-        <label htmlFor="date_of_birth" className={styles.label}>
+        <label htmlFor="date_of_birth">
           <span className={styles.labels}>Date Of Birth:</span>
           <input
             type="date"
@@ -72,7 +74,7 @@ function AddAuthor() {
             onChange={handleChange}
           />
         </label>
-        <label htmlFor="date_of_death" className={styles.label}>
+        <label htmlFor="date_of_death">
           <span className={styles.labels}>Date Of Death:</span>
           <input
             type="date"

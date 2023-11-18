@@ -73,24 +73,26 @@ function Addbook() {
       </h1>
       <form className={styles.addform}>
         <label htmlFor="author">
-          <span className={styles.labels}>Author:</span>
-          {authors.length !== 0 ? (
-            <select
-              name="author"
-              id="author"
-              onChange={handleChange}
-              className={styles.select}
-              value={JSON.stringify(bookdetails.author)}
-            >
-              {authors.map((author, index) => (
-                <option value={JSON.stringify(author)} key={index}>
-                  {author.first_name + " " + author.family_name}
-                </option>
-              ))}
-            </select>
-          ) : (
-            <></>
-          )}
+          <div className={styles.box}>
+            <span className={styles.labels}>Author:</span>
+            {authors.length !== 0 ? (
+              <select
+                name="author"
+                id="author"
+                onChange={handleChange}
+                className={styles.select}
+                value={JSON.stringify(bookdetails.author)}
+              >
+                {authors.map((author, index) => (
+                  <option value={JSON.stringify(author)} key={index}>
+                    {author.first_name + " " + author.family_name}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <></>
+            )}
+          </div>
 
           <Link to="/Addauthor" className={styles.links}>
             Add author
@@ -121,25 +123,27 @@ function Addbook() {
         </label>
 
         <label htmlFor="genre">
-          <span className={styles.labels}>Genre:</span>
-          {genres.length !== 0 ? (
-            <select
-              name="genre"
-              id="genre"
-              onChange={handleChange}
-              value={JSON.stringify(bookdetails.genre)}
-              className={styles.select}
-            >
-              {/* <option value="genre">genre</option> */}
-              {genres.map((genre, index) => (
-                <option value={JSON.stringify(genre)} key={index}>
-                  {genre.name}
-                </option>
-              ))}
-            </select>
-          ) : (
-            <></>
-          )}
+          <div className={styles.box}>
+            <span className={styles.labels}>Genre:</span>
+            {genres.length !== 0 ? (
+              <select
+                name="genre"
+                id="genre"
+                onChange={handleChange}
+                value={JSON.stringify(bookdetails.genre)}
+                className={styles.select}
+              >
+                {/* <option value="genre">genre</option> */}
+                {genres.map((genre, index) => (
+                  <option value={JSON.stringify(genre)} key={index}>
+                    {genre.name}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              <></>
+            )}
+          </div>
           <Link to="/Addgenre" className={styles.links}>
             Add genre
           </Link>

@@ -1,8 +1,13 @@
 .wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    gap:0.75rem;
     margin:1rem;
+}
+.form{
+    display: flex;
+    flex-direction: column;
 }
 .form input{
     background-color: transparent;
@@ -14,9 +19,9 @@
     border:1px solid black;
     transition: all 0.1s;
 }
+
 .title{
     text-align: center;
-    color:#4DB6AC;
     margin-top: 0.75rem;
 }
 #goback{
@@ -28,9 +33,11 @@
     font-weight: bolder;
     text-align: center;
     margin-top: 1rem;
-    background-color: #BAE8E8;
     padding:1.3rem;
     border-radius: 0.75rem;
+}
+.view{
+    margin:2rem;
 }
 
 .btn{
@@ -46,6 +53,5 @@
 
 }
 .btn:hover {
-    background-color: #4DB6AC;
-    color:black;
+    background-color: var(--light);
 }

@@ -45,6 +45,9 @@
 }
 .useroptions{
     width: 30%;
+}.contentImg{
+    position: relative;
+    /* border:1px solid pink; */
 }
 .contentImg img{
     height: 400px;
@@ -56,14 +59,13 @@
 }
 
 .userpfp img{
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
     object-fit: cover;
 }
 
 .content{
     position: relative;
-    /* border: 2px solid blue; */
 }
 .contentTxt{
     margin-left: 1rem;
@@ -77,19 +79,19 @@
 
 .arrow{
     position: absolute;
-    color: var(--primary);
+    color: var(--dark);
     cursor: pointer;
 }
 #right{
     width:25px;
     height: 25px;
-    top:30%;
+    top:40%;
     right:10%;
 }
 #left{
     width:25px;
     height: 25px;
-    top:30%;
+    top:40%;
     left:10%;
 }
 .like{

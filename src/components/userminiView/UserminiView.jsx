@@ -25,7 +25,14 @@ function UserminiView({ user }) {
   return (
     <div className={styles.container}>
       <div className={styles.pfp}>
-        <img src={pfp} alt="" />
+        <img
+          src={
+            user.profilePicture
+              ? `https://res.cloudinary.com/dqg2lqugz/image/upload/c_crop,g_face,h_400,w_400/r_max/c_scale,w_200/f_auto/${user.profilePicture}`
+              : pfp
+          }
+          alt=""
+        />
       </div>
       <div>
         <p>{user.username}</p>

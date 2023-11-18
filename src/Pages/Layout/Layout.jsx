@@ -30,6 +30,27 @@ function Layout() {
             Post
           </div>
         </Link>
+        <Link to="/AddBook" onClick={() => setIndex(4)}>
+          <div
+            className={`${styles.option} ${index === 4 ? styles.active : ""}`}
+          >
+            Add Book
+          </div>
+        </Link>
+        <Link to="/AddAuthor" onClick={() => setIndex(5)}>
+          <div
+            className={`${styles.option} ${index === 5 ? styles.active : ""}`}
+          >
+            Add Author
+          </div>
+        </Link>
+        <Link to="/AddGenre" onClick={() => setIndex(6)}>
+          <div
+            className={`${styles.option} ${index === 6 ? styles.active : ""}`}
+          >
+            Add Genre
+          </div>
+        </Link>
       </ul>
     </div>
   );

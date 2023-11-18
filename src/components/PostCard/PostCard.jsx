@@ -25,6 +25,7 @@ function PostCard({
   content,
   loading,
 }) {
+  console.log(user.profilePicture);
   const [like, setlike] = useState(false);
   const [ptr, setptr] = useState(0);
   const [likeCount, setLikeCount] = useState(likes.length);
@@ -129,7 +130,14 @@ function PostCard({
           <div className={`${styles.head} ${styles.items}`}>
             <div className={styles.pfp}>
               <div className={styles.userpfp}>
-                <img src={pfp} alt="" />
+                <img
+                  src={
+                    user.profilePicture
+                      ? `https://res.cloudinary.com/dqg2lqugz/image/upload/c_crop,g_face,h_400,w_400/r_max/c_scale,w_200/f_auto/${user.profilePicture}`
+                      : pfp
+                  }
+                  alt=""
+                />
               </div>
               <div className={styles.userfeature}>
                 <p>{user.username}</p>
@@ -143,21 +151,25 @@ function PostCard({
             </div>
           </div>
           <div className={`${styles.content} ${styles.items}`}>
-            <BiSolidLeftArrowCircle
-              className={styles.arrow}
-              id={styles.left}
-              onClick={handlePtr}
-            />
             <div className={styles.contentImg}>
-              <img
-                src={`https://res.cloudinary.com/dqg2lqugz/image/upload/${images[ptr]}`}
+              <BiSolidLeftArrowCircle
+                className={styles.arrow}
+                id={styles.left}
+                onClick={handlePtr}
+              />
+              {images != null ? (
+                <img
+                  src={`https://res.cloudinary.com/dqg2lqugz/image/upload/${images[ptr]}`}
+                />
+              ) : (
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png" />
+              )}
+              <BiSolidRightArrowCircle
+                className={styles.arrow}
+                id={styles.right}
+                onClick={handlePtr}
               />
             </div>
-            <BiSolidRightArrowCircle
-              className={styles.arrow}
-              id={styles.right}
-              onClick={handlePtr}
-            />
             <div
               className={styles.contentTxt}
               dangerouslySetInnerHTML={createMarkup(content)}
