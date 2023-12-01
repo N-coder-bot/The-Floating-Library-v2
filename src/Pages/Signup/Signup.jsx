@@ -3,6 +3,7 @@ import styles from "./Signup.module.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { origin } from "../../assests/origin";
+import { FaSpinner } from "react-icons/fa";
 function Signup() {
   const Detail = {
     username: "",
@@ -11,7 +12,12 @@ function Signup() {
   };
   const [userDetails, setuserDetails] = useState(Detail); //store user details.
   const [error, seterror] = useState(""); // to store error.
-
+  const [progress, setprogress] = useState(0);
+  const [loading, setloading] = useState(false);
+  const progressConfig = (e) => {
+    let currentProgress = Math.round((e.loaded * 100) / e.total);
+    setprogress(currentProgress);
+  };
   // so error disappears in 5 seconds.
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -39,13 +45,17 @@ function Signup() {
   //form data submitting and signing up a new user.
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setloading(true);
 
     if (userDetails.password !== userDetails.confirmPassword) {
       seterror("Password and Confirm Password must be same");
     } else {
       try {
-        await axios.post(`${origin}/users/signUp`, userDetails);
+        await axios.post(`${origin}/users/signUp`, userDetails, {
+          onUploadProgress: progressConfig,
+        });
         alert("Submitted successfully!");
+        setloading(false);
         // TODO : try to empty fields without reload.
         window.location.reload();
       } catch (error) {
@@ -57,14 +67,28 @@ function Signup() {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>
+      {loading ? (
+        <div className={styles.loader}>
+          Loading...{progress}%
+          <FaSpinner />
+        </div>
+      ) : (
+        <></>
+      )}
+      <h1 className={`${loading ? styles.inactive : styles.title}`}>
         Sign Up
         <br />
         Make an account, go ahead its free
       </h1>
 
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <label htmlFor="username" className={styles.label}>
+      <form
+        className={`${loading ? styles.inactive : styles.form}`}
+        onSubmit={handleSubmit}
+      >
+        <label
+          htmlFor="username"
+          className={`${loading ? styles.inactive : styles.label}`}
+        >
           <span>Name</span>
           <input
             type="text"
@@ -75,7 +99,10 @@ function Signup() {
             required
           />
         </label>
-        <label htmlFor="password" className={styles.label}>
+        <label
+          htmlFor="password"
+          className={`${loading ? styles.inactive : styles.label}`}
+        >
           <span>Password</span>
           <input
             type="password"
@@ -86,7 +113,10 @@ function Signup() {
             required
           />
         </label>
-        <label htmlFor="confirmPassword" className={styles.label}>
+        <label
+          htmlFor="confirmPassword"
+          className={`${loading ? styles.inactive : styles.label}`}
+        >
           <span>Confirm Password</span>
           <input
             type="password"
@@ -97,10 +127,13 @@ function Signup() {
             required
           />
         </label>
-        <button type="submit" className={styles.button}>
+        <button
+          type="submit"
+          className={`${loading ? styles.inactive : styles.button}`}
+        >
           Sign Up
         </button>
-        <h2 className={styles.title}>
+        <h2 className={`${loading ? styles.inactive : styles.title}`}>
           Existing User? <Link to="/Login">Log In</Link>
         </h2>
       </form>

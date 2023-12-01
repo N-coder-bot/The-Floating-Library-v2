@@ -91,6 +91,19 @@
     padding:1.3rem;
     border-radius: 0.75rem;
 }
+.loader{
+    position: absolute;
+    font-size: 3rem;
+    top:50%;
+    font-weight: 400;
+    color:rgba(0, 0, 0, 0.82);
+    background-color: rgba(240, 248, 255, 0.729);
+    padding:2rem;
+    border-radius: 0.5rem;
+}
+.inactive{
+    display: none;
+}
 
 @media (min-width: 375px) {
     .label>span {
