@@ -51,6 +51,7 @@ function Login() {
       window.location = "/Feed";
       // console.log(error);
     } catch (error) {
+      setloading(false);
       if (error.response && error.response.status === 401) {
         if (error.response.data.msg === "could not find user") {
           seterror("Could not find user.");

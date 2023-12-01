@@ -59,6 +59,7 @@ function Signup() {
         // TODO : try to empty fields without reload.
         window.location.reload();
       } catch (error) {
+        setloading(false);
         seterror("ACCOUNT WITH SAME USERNAME EXISTS!");
         // console.log(error, " hi");
       }
