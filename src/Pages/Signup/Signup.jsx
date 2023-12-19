@@ -57,7 +57,7 @@ function Signup() {
         alert("Submitted successfully!");
         setloading(false);
         // TODO : try to empty fields without reload.
-        window.location.reload();
+        setuserDetails((userDetails) => null);
       } catch (error) {
         setloading(false);
         seterror("ACCOUNT WITH SAME USERNAME EXISTS!");
