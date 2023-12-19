@@ -63,7 +63,7 @@ function Addbook() {
       headers: { Authorization: `${localStorage.getItem("token")}` },
     });
     alert("book added successfully!");
-    window.location.reload();
+    setbookdetails(details);
     // console.log(bookdetails);
   };
   return (

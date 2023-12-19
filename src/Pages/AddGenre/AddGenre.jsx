@@ -24,7 +24,7 @@ function AddGenre() {
       },
     });
     alert("Genre Added to Collection Successfully!");
-    window.location.reload();
+    setgenreDetails(details);
     // console.log(response);
   };
   const [genreDetails, setgenreDetails] = useState(details);
