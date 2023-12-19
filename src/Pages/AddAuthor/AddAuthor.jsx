@@ -32,7 +32,7 @@ function AddAuthor() {
       },
     });
     alert("Author added successfully");
-    window.location.reload();
+    setAuthorDetails(details);
     // console.log(response.data);
   };
   return (
