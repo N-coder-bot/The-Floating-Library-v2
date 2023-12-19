@@ -118,7 +118,7 @@ const PostForm = () => {
       console.log(error);
     } finally {
       setloading(false);
-      navigate("/home");
+      navigate("/Feed");
     }
   };
   return (
